@@ -1,0 +1,35 @@
+{
+	"name": "yt-team-bot",
+	"version": "1.0.0",
+	"description": "bot discord de la communauté YT - Team",
+	"main": "src/index.ts",
+	"repository": "none",
+	"author": "Rafael Martinez",
+	"license": "MIT",
+	"scripts": {
+		"dev": "node -r tsconfig-paths/register --loader ts-node/esm ./src/index.ts",
+		"start": "node ./build/index.js",
+		"build": "tsc && tscpaths -p tsconfig.json -s ./src -o ./build",
+		"format": "prettier -w ./src/",
+		"lint": "eslint ./src"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^4.32.0",
+		"@typescript-eslint/parser": "^4.32.0",
+		"eslint": "^7.32.0",
+		"prettier": "^2.4.1",
+		"ts-node": "^10.2.1",
+		"tsconfig-paths": "^3.11.0",
+		"tscpaths": "^0.0.9",
+		"typescript": "^4.4.3"
+	},
+	"dependencies": {
+		"chalk": "^4.1.2",
+		"discord.js": "^13.0.1",
+		"dotenv": "^10.0.0",
+		"mongoose": "^6.0.5"
+	},
+	"engines": {
+		"node": "16.x"
+	}
+}
