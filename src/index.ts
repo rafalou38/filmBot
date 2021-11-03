@@ -1,14 +1,23 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-import Discord from "discord.js";
-import { handleMessageCreate } from "events/message/create";
-import { context } from "context/context";
-import { initDB } from "db/initialize";
-import { log } from "utils/log";
 import chalk from "chalk";
+import Discord from "discord.js";
 
-const intents: Discord.IntentsString[] = ["GUILDS", "GUILD_MESSAGES", "DIRECT_MESSAGES"];
+import { log } from "utils/log";
+import { initDB } from "db/initialize";
+import { context } from "context/context";
+
+import { handleMessageCreate } from "events/message/create";
+import { handleGuildMemberCreate } from "events/members/create";
+import { handleGuildMemberRemove } from "events/members/remove";
+
+const intents: Discord.IntentsString[] = [
+    "GUILDS",
+    "GUILD_MESSAGES",
+    "DIRECT_MESSAGES",
+    "GUILD_MEMBERS",
+];
 const client = new Discord.Client({
     intents: intents,
 });
@@ -19,6 +28,8 @@ client.once("ready", async () => {
 });
 
 client.on("messageCreate", handleMessageCreate);
+client.on("guildMemberAdd", handleGuildMemberCreate);
+client.on("guildMemberRemove", handleGuildMemberRemove);
 
 initDB().then(() => {
     client.login(process.env.BOT_TOKEN);
