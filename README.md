@@ -1,5 +1,5 @@
 [x] Messages de bienvenu et d'au revoir dans un canal spécifique
-[ ] Commandes d'administration classiques
+[x] Commandes d'administration classiques
 [ ] Sélection de rôles via réaction
 [ ] Système de musique (play, pause, skip, lyrics etc) et de LOFI
 [ ] Levelling avec scoreboard, rankcard et possibilité de personnaliser cette dernière

@@ -7,7 +7,7 @@ export const help = {
     description: "Affiche la liste des commandes.",
 };
 
-export async function run(message: Message): Promise<CommandReturn> {
+export async function run(message: Message, args: string[]): Promise<CommandReturn> {
     const commandsHelp = Object.values(commands).map((command) => {
         const l = ["**", command?.help.name, ":**", "\n", command?.help.description, "\n"];
         if (command?.help.syntax) {

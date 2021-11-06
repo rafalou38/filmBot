@@ -12,7 +12,7 @@ interface commandModule {
         description: string;
         syntax?: string;
     };
-    run: (message: Message) => Promise<CommandReturn>;
+    run: (message: Message, args: string[]) => Promise<CommandReturn>;
 }
 
 declare interface ICommandList {

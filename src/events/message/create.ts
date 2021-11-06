@@ -21,10 +21,12 @@ export async function handleMessageCreate(message: Message) {
             chalk.bold(chalk.red("NO_EXIST")),
         );
 
+    const args = message.content.match(/(?<=(!\w+)?)(?<=\s+)[\w\d@<>]+/g);
+
     let result: CommandReturn = { status: "ERROR", label: "Unknown error" };
     let error: unknown;
     try {
-        result = await command.run(message);
+        result = await command.run(message, args || []);
     } catch (err) {
         error = err;
     }
