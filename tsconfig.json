@@ -13,13 +13,16 @@
             "utils/*": ["./utils/*"],
             "context/*": ["./context/*"],
             "db/*": ["./database/*"],
-            "events/*": ["./events/*"]
+            "events/*": ["./events/*"],
+            "commands/*": ["./commands/*"]
         },
 
         "esModuleInterop": true,
 
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+
+        "incremental": true
     },
     "include": ["./src"],
     "exclude": ["./build"]
