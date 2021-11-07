@@ -13,6 +13,7 @@ import { handleGuildMemberCreate } from "events/members/create";
 import { handleGuildMemberRemove } from "events/members/remove";
 import { handleMessageReactionAdd } from "events/reactions/create";
 import { handleMessageReactionRemove } from "events/reactions/remove";
+import { handleInteractionCreate } from "events/interaction/create";
 
 const intents: Discord.IntentsString[] = [
     "GUILDS",
@@ -31,6 +32,7 @@ client.once("ready", async () => {
 });
 
 client.on("messageCreate", handleMessageCreate);
+client.on("interactionCreate", handleInteractionCreate);
 
 client.on("guildMemberAdd", handleGuildMemberCreate);
 client.on("guildMemberRemove", handleGuildMemberRemove);

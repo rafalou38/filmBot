@@ -14,7 +14,8 @@
             "context/*": ["./context/*"],
             "db/*": ["./database/*"],
             "events/*": ["./events/*"],
-            "commands/*": ["./commands/*"]
+            "commands/*": ["./commands/*"],
+            "interactions/*": ["./interactions/*"]
         },
 
         "esModuleInterop": true,
