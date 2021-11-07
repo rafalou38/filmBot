@@ -11,12 +11,15 @@ import { context } from "context/context";
 import { handleMessageCreate } from "events/message/create";
 import { handleGuildMemberCreate } from "events/members/create";
 import { handleGuildMemberRemove } from "events/members/remove";
+import { handleMessageReactionAdd } from "events/reactions/create";
+import { handleMessageReactionRemove } from "events/reactions/remove";
 
 const intents: Discord.IntentsString[] = [
     "GUILDS",
     "GUILD_MESSAGES",
     "DIRECT_MESSAGES",
     "GUILD_MEMBERS",
+    "GUILD_MESSAGE_REACTIONS",
 ];
 const client = new Discord.Client({
     intents: intents,
@@ -28,8 +31,12 @@ client.once("ready", async () => {
 });
 
 client.on("messageCreate", handleMessageCreate);
+
 client.on("guildMemberAdd", handleGuildMemberCreate);
 client.on("guildMemberRemove", handleGuildMemberRemove);
+
+client.on("messageReactionAdd", handleMessageReactionAdd);
+client.on("messageReactionRemove", handleMessageReactionRemove);
 
 initDB().then(() => {
     client.login(process.env.BOT_TOKEN);

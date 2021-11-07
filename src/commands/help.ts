@@ -1,4 +1,4 @@
-import commands from "commands";
+import commands from "commands/index";
 import { Message } from "discord.js";
 import { CommandReturn } from "types/commands";
 

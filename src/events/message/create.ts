@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import commands from "commands";
+import commands from "commands/index";
 import { config } from "context/config";
 import { Message } from "discord.js";
 import { CommandReturn } from "types/commands";
@@ -21,7 +21,7 @@ export async function handleMessageCreate(message: Message) {
             chalk.bold(chalk.red("NO_EXIST")),
         );
 
-    const args = message.content.match(/(?<=(!\w+)?)(?<=\s+)[\w\d@<>]+/g);
+    const args = message.content.match(/(?<=(!\w+)?)(?<=\s+)\S+/g);
 
     let result: CommandReturn = { status: "ERROR", label: "Unknown error" };
     let error: unknown;
