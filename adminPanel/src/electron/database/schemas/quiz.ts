@@ -3,22 +3,31 @@ import { Document, model, Schema, Types } from "mongoose";
 interface IQuiz extends Document {
     title: string;
     description: string;
-    questions: Types.ObjectId[];
+    questions: {
+        question: string;
+        answer: string;
+    }[];
 }
 
 const schema = new Schema({
     title: {
         type: String,
-        required: true,
+        default: "new quiz",
     },
     description: {
         type: String,
-        required: true,
+        default: "quiz",
     },
     questions: [
         {
-            type: Schema.Types.ObjectId,
-            ref: "Question",
+            question: {
+                type: String,
+                default: "new question",
+            },
+            answer: {
+                type: String,
+                default: "answer",
+            },
         },
     ],
 });

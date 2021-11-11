@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "start": "electron ./electron/index.js",
+    "watch": "run-p watch:**",
+    "watch:tsc": "tsc --watch --pretty --preserveWatchOutput",
+    "watch:svelte": "rollup -c -w",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
@@ -15,18 +17,22 @@
     "@tsconfig/svelte": "^2.0.0",
     "electron": "^15.3.1",
     "mongoose": "^6.0.12",
+    "npm-run-all": "^4.1.5",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
+    "sass": "^1.43.4",
     "svelte": "^3.0.0",
     "svelte-check": "^2.0.0",
+    "svelte-material-ui": "^5.0.0",
     "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "sirv-cli": "^1.0.0"
   }
 }

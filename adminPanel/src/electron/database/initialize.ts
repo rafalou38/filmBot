@@ -1,11 +1,14 @@
-import mongoose from "mongoose";
-import { MONGO_URI } from "../config";
+import { connect } from "mongoose";
 
-export async function initDB() {
+async function initDB() {
+    console.log(connect);
+
     return new Promise((resolve, reject) => {
-        if (MONGO_URI) return reject(new Error("Missing MONGO_URI in dotenv"));
+        if (!process.env.MONGO_URI) return reject(new Error("Missing MONGO_URI in dotenv"));
 
-        mongoose.connect(MONGO_URI, (err) => {
+        connect(process.env.MONGO_URI, (err) => {
+            console.log(err);
+
             if (err) {
                 console.log("failed to connect to mongoDB ❌");
                 reject(err);
@@ -16,3 +19,5 @@ export async function initDB() {
         });
     });
 }
+
+export const dbLoad = initDB();
