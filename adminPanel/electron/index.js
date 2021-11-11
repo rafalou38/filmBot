@@ -21,7 +21,7 @@ require("./ipc");
 let mainWindow;
 app.on("ready", () => __awaiter(void 0, void 0, void 0, function* () {
     mainWindow = new BrowserWindow({
-        width: 1000,
+        width: 400,
         height: 700,
         webPreferences: {
             nodeIntegration: true,

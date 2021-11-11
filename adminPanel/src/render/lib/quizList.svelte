@@ -11,19 +11,17 @@
     }
 </script>
 
-<div>
-    {#if $quizList.length > 0}
-        <List class="demo-list">
-            {#each $quizList as quiz}
-                <Item on:SMUI:action={() => currentQuiz.set(quiz)}><Text>{quiz.title}</Text></Item>
-            {/each}
-        </List>
-    {/if}
-    <Button variant="raised" on:click={buttonClicked}>
-        <Icon class="material-icons">add</Icon>
-        <Label>New quiz</Label>
-    </Button>
-</div>
+{#if $quizList.length > 0}
+    <List class="demo-list">
+        {#each $quizList as quiz}
+            <Item on:SMUI:action={() => currentQuiz.set(quiz)}><Text>{quiz.title}</Text></Item>
+        {/each}
+    </List>
+{/if}
+<Button variant="raised" on:click={buttonClicked}>
+    <Icon class="material-icons">add</Icon>
+    <Label>New quiz</Label>
+</Button>
 
 <style>
     * :global(.demo-list) {

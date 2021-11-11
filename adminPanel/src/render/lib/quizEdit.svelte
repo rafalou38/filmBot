@@ -28,54 +28,46 @@
     }
 </script>
 
-<div class="content">
-    <Button variant="raised" color="secondary" on:click={back}>
-        <Icon class="material-icons">arrow_back</Icon>
-        <Label>retour</Label>
-    </Button>
+<Button variant="raised" color="secondary" on:click={back}>
+    <Icon class="material-icons">arrow_back</Icon>
+    <Label>retour</Label>
+</Button>
 
-    <div class="section">
-        <div class="mdc-typography--headline4">Infos sur le quiz</div>
-        <Textfield bind:value={$currentQuiz.title} variant="filled" label="Nom" />
-        <Textfield
-            textarea
-            bind:value={$currentQuiz.description}
-            variant="filled"
-            label="Description"
-        />
-        <Button variant="raised" class="red small-cent" on:click={deleteQuiz}>
-            <Icon class="material-icons">delete</Icon>
-            <Label>supprimer</Label>
-        </Button>
-    </div>
-    <div class="section">
-        <div class="mdc-typography--headline4">Questions</div>
-        {#each $currentQuiz.questions as question, i}
-            <Question {question} on:remove={removeQuestion.bind(null, i)} />
-        {/each}
-        <Button variant="raised" on:click={addQuestion}>
-            <Icon class="material-icons">add</Icon>
-            <Label>Ajouter</Label>
-        </Button>
-    </div>
-    <Button variant="raised" on:click={save}>
-        <Icon class="material-icons">save</Icon>
-        <Label>save</Label>
+<div class="section">
+    <div class="mdc-typography--headline4">Infos sur le quiz</div>
+    <Textfield bind:value={$currentQuiz.title} variant="filled" label="Nom" />
+    <Textfield
+        textarea
+        bind:value={$currentQuiz.description}
+        variant="filled"
+        label="Description"
+    />
+    <Button variant="raised" class="red small-cent" on:click={deleteQuiz}>
+        <Icon class="material-icons">delete</Icon>
+        <Label>supprimer</Label>
     </Button>
 </div>
+<div class="section">
+    <div class="mdc-typography--headline4">Questions</div>
+    {#each $currentQuiz.questions as question, i}
+        <Question {question} on:remove={removeQuestion.bind(null, i)} />
+    {/each}
+    <Button variant="raised" on:click={addQuestion}>
+        <Icon class="material-icons">add</Icon>
+        <Label>Ajouter</Label>
+    </Button>
+</div>
+<Button variant="raised" on:click={save}>
+    <Icon class="material-icons">save</Icon>
+    <Label>save</Label>
+</Button>
 
 <style>
     :global(.mdc-button.red) {
         margin-top: 0.75em;
         background-color: red !important;
     }
-    .content {
-        margin: 4em 2em;
-        width: 100%;
-        max-width: 400px;
-        display: flex;
-        flex-direction: column;
-    }
+
     .section {
         gap: 1em;
         display: flex;

@@ -9,8 +9,20 @@
 </script>
 
 <!-- initDB was fulfilled -->
-{#if $currentQuiz}
-    <QuizEdit />
-{:else}
-    <QuizList />
-{/if}
+<div class="content">
+    {#if $currentQuiz}
+        <QuizEdit />
+    {:else}
+        <QuizList />
+    {/if}
+</div>
+
+<style>
+    .content {
+        /* margin: 4em 2em; */
+        width: 100%;
+        /* max-width: 400px; */
+        display: flex;
+        flex-direction: column;
+    }
+</style>
