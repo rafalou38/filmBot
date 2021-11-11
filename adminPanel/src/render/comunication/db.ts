@@ -18,6 +18,11 @@ export async function addQuiz(): Promise<IQuiz> {
     console.log(result);
     return result as IQuiz;
 }
+export async function removeQuiz(id: string): Promise<IQuiz> {
+    const result = await ipcRenderer.invoke("removeQuiz", id);
+    console.log(result);
+    return result as IQuiz;
+}
 export async function saveQuiz(quiz: IQuiz) {
     await ipcRenderer.invoke("saveQuiz", quiz);
 }

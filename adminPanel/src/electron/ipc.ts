@@ -1,5 +1,5 @@
 import { ipcMain } from "electron";
-import { addQuiz, getQuiz, getQuizList, saveQuiz } from "./database/api/quiz";
+import { addQuiz, getQuiz, getQuizList, removeQuiz, saveQuiz } from "./database/api/quiz";
 import { Quiz } from "./database/schemas/quiz";
 
 ipcMain.handle("getQuizList", async (event, ...args) => {
@@ -12,6 +12,10 @@ ipcMain.handle("getQuizList", async (event, ...args) => {
 ipcMain.handle("getQuiz", async (event, id) => {
     const result = await getQuiz(id);
     return result?.toObject({ getters: true });
+});
+ipcMain.handle("removeQuiz", async (event, id) => {
+    const result = await removeQuiz(id);
+    return !!result;
 });
 ipcMain.handle("addQuiz", async (event) => {
     const result = await addQuiz();

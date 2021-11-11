@@ -21,6 +21,10 @@ electron_1.ipcMain.handle("getQuiz", (event, id) => __awaiter(void 0, void 0, vo
     const result = yield (0, quiz_1.getQuiz)(id);
     return result === null || result === void 0 ? void 0 : result.toObject({ getters: true });
 }));
+electron_1.ipcMain.handle("removeQuiz", (event, id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield (0, quiz_1.removeQuiz)(id);
+    return !!result;
+}));
 electron_1.ipcMain.handle("addQuiz", (event) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield (0, quiz_1.addQuiz)();
     return result.toObject({ getters: true });

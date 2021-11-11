@@ -1,10 +1,12 @@
 export type { IpcRenderer } from "electron";
 
-export interface IQuiz extends Document {
+export interface IQuiz {
+    id: string;
     title: string;
     description: string;
-    questions: {
-        question: string;
-        answer: string;
-    }[];
+    questions: IQuestion[];
+}
+export interface IQuestion {
+    question: string;
+    answer: string;
 }

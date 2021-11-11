@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.saveQuiz = exports.addQuiz = exports.getQuiz = exports.getQuizList = void 0;
+exports.saveQuiz = exports.removeQuiz = exports.addQuiz = exports.getQuiz = exports.getQuizList = void 0;
 const quiz_1 = require("../schemas/quiz");
 function getQuizList() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -30,6 +30,12 @@ function addQuiz() {
     });
 }
 exports.addQuiz = addQuiz;
+function removeQuiz(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return quiz_1.Quiz.findByIdAndRemove(id);
+    });
+}
+exports.removeQuiz = removeQuiz;
 function saveQuiz(update) {
     return __awaiter(this, void 0, void 0, function* () {
         return quiz_1.Quiz.findByIdAndUpdate(update.id, update);
