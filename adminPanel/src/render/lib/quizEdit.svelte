@@ -4,9 +4,17 @@
 
     import { currentQuiz, quizList } from "./stores";
     import Question from "./question.svelte";
-    import { getQuizList, removeQuiz } from "../comunication/db";
+    import { getQuizList, removeQuiz, saveQuiz } from "../comunication/db";
 
-    function save() {}
+    async function save() {
+        let result = await saveQuiz($currentQuiz);
+        if (result) {
+            alert("Quiz saved");
+            $currentQuiz = null;
+        } else {
+            alert("Error saving quiz");
+        }
+    }
     function back() {
         currentQuiz.set(null);
     }

@@ -38,7 +38,12 @@ function removeQuiz(id) {
 exports.removeQuiz = removeQuiz;
 function saveQuiz(update) {
     return __awaiter(this, void 0, void 0, function* () {
-        return quiz_1.Quiz.findByIdAndUpdate(update.id, update);
+        console.log(update.id);
+        return quiz_1.Quiz.findByIdAndUpdate(update.id, {
+            description: update.description,
+            questions: update.questions,
+            title: update.title,
+        });
     });
 }
 exports.saveQuiz = saveQuiz;

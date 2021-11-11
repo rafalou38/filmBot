@@ -23,5 +23,5 @@ ipcMain.handle("addQuiz", async (event) => {
 });
 ipcMain.handle("saveQuiz", async (event, quiz: Quiz) => {
     const result = await saveQuiz(quiz);
-    return result;
+    return !!result;
 });

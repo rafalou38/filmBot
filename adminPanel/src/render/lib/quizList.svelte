@@ -24,7 +24,7 @@
 </Button>
 
 <style>
-    * :global(.demo-list) {
+    :global(.demo-list) {
         border: 1px solid var(--mdc-theme-text-hint-on-background, rgba(0, 0, 0, 0.1));
     }
 </style>

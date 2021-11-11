@@ -2,27 +2,22 @@ import type { IQuiz } from "../types/quiz";
 
 const { ipcRenderer } = require("electron");
 // const { port1, port2 } = new MessageChannel();
-export async function getQuizList() {
+export async function getQuizList(): Promise<IQuiz[]> {
     const result = await ipcRenderer.invoke("getQuizList");
-    console.log(result);
-
-    return result as IQuiz[];
+    return result;
 }
-export async function getQuiz(id: string) {
+export async function getQuiz(id: string): Promise<IQuiz> {
     const result = await ipcRenderer.invoke("getQuiz", id);
-    console.log(result);
-    return result as IQuiz;
+    return result;
 }
 export async function addQuiz(): Promise<IQuiz> {
     const result = await ipcRenderer.invoke("addQuiz");
-    console.log(result);
-    return result as IQuiz;
+    return result;
 }
-export async function removeQuiz(id: string): Promise<IQuiz> {
+export async function removeQuiz(id: string): Promise<boolean> {
     const result = await ipcRenderer.invoke("removeQuiz", id);
-    console.log(result);
-    return result as IQuiz;
+    return result;
 }
-export async function saveQuiz(quiz: IQuiz) {
-    await ipcRenderer.invoke("saveQuiz", quiz);
+export async function saveQuiz(quiz: IQuiz): Promise<boolean> {
+    return await ipcRenderer.invoke("saveQuiz", quiz);
 }

@@ -14,5 +14,11 @@ export async function removeQuiz(id: string) {
     return Quiz.findByIdAndRemove(id);
 }
 export async function saveQuiz(update: Quiz) {
-    return Quiz.findByIdAndUpdate(update.id, update);
+    console.log(update.id);
+
+    return Quiz.findByIdAndUpdate(update.id, {
+        description: update.description,
+        questions: update.questions,
+        title: update.title,
+    });
 }

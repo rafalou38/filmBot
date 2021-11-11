@@ -31,5 +31,5 @@ electron_1.ipcMain.handle("addQuiz", (event) => __awaiter(void 0, void 0, void 0
 }));
 electron_1.ipcMain.handle("saveQuiz", (event, quiz) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield (0, quiz_1.saveQuiz)(quiz);
-    return result;
+    return !!result;
 }));
