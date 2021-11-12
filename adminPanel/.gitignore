@@ -1,5 +1,7 @@
 /node_modules/
 /public/build/
+/electron/
+
 
 .DS_Store
 /src/config.ts
