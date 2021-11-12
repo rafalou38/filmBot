@@ -14,11 +14,12 @@ export async function removeQuiz(id: string) {
     return Quiz.findByIdAndRemove(id);
 }
 export async function saveQuiz(update: Quiz) {
-    console.log(update.id);
-
     return Quiz.findByIdAndUpdate(update.id, {
         description: update.description,
-        questions: update.questions,
+        questions: update.questions.map((q) => ({
+            answer: q.answer,
+            question: q.question,
+        })),
         title: update.title,
     });
 }

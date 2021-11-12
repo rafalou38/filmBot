@@ -12,7 +12,7 @@
 </script>
 
 <div class="question">
-    <Card padded>
+    <Card variant="outlined" padded>
         <div class="content">
             <Textfield bind:value={question.question} variant="filled" label="Question" />
             <Textfield bind:value={question.answer} variant="filled" label="Réponse" />
