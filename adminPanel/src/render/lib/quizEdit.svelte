@@ -41,33 +41,35 @@
     <Label>retour</Label>
 </Button>
 
-<div class="section">
-    <div class="mdc-typography--headline4">Infos sur le quiz</div>
-    <Textfield bind:value={$currentQuiz.title} variant="filled" label="Nom" />
-    <Textfield
-        textarea
-        bind:value={$currentQuiz.description}
-        variant="filled"
-        label="Description"
-    />
-    <Button variant="raised" class="red small-cent" on:click={deleteQuiz}>
-        <Icon class="material-icons">delete</Icon>
-        <Label>supprimer</Label>
-    </Button>
-</div>
-<div class="section">
-    <div class="mdc-typography--headline4">Questions</div>
-    {#each $currentQuiz.questions as question, i}
-        <Question {question} on:remove={removeQuestion.bind(null, i)} />
-    {/each}
-    <Button variant="raised" on:click={addQuestion}>
-        <Icon class="material-icons">add</Icon>
-        <Label>Ajouter</Label>
-    </Button>
+<div class="edit">
+    <div class="section">
+        <div class="mdc-typography--headline4">Infos sur le quiz</div>
+        <Textfield bind:value={$currentQuiz.title} variant="filled" label="Nom" />
+        <Textfield
+            textarea
+            bind:value={$currentQuiz.description}
+            variant="filled"
+            label="Description"
+        />
+    </div>
+    <div class="section">
+        <div class="mdc-typography--headline4">Questions</div>
+        {#each $currentQuiz.questions as question, i}
+            <Question {question} on:remove={removeQuestion.bind(null, i)} />
+        {/each}
+        <Button variant="raised" on:click={addQuestion}>
+            <Icon class="material-icons">add</Icon>
+            <Label>Ajouter</Label>
+        </Button>
+    </div>
 </div>
 <Button variant="raised" on:click={save}>
     <Icon class="material-icons">save</Icon>
     <Label>save</Label>
+</Button>
+<Button variant="raised" class="red" on:click={deleteQuiz}>
+    <Icon class="material-icons">delete</Icon>
+    <Label>supprimer</Label>
 </Button>
 
 <style>
@@ -80,7 +82,11 @@
         gap: 1em;
         display: flex;
         flex-direction: column;
-        margin-top: 2em;
-        margin-bottom: 2em;
+    }
+    .edit {
+        gap: 1em;
+        display: flex;
+        flex-direction: column;
+        margin: 1em;
     }
 </style>

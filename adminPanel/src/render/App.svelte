@@ -24,5 +24,6 @@
         /* max-width: 400px; */
         display: flex;
         flex-direction: column;
+        gap: 1em;
     }
 </style>
