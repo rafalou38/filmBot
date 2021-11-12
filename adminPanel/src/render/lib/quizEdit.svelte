@@ -29,8 +29,8 @@
         $currentQuiz.questions.splice(index, 1);
         $currentQuiz = $currentQuiz;
     }
-    function deleteQuiz() {
-        removeQuiz($currentQuiz.id);
+    async function deleteQuiz() {
+        await removeQuiz($currentQuiz.id);
         getQuizList().then(quizList.set);
         currentQuiz.set(null);
     }

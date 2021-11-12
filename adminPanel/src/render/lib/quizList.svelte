@@ -7,6 +7,11 @@
 
     async function buttonClicked() {
         let result = await addQuiz();
+        if (result) {
+            $quizList.push(result);
+            currentQuiz.set(result);
+            $quizList = $quizList;
+        }
         console.log(result);
     }
 </script>
