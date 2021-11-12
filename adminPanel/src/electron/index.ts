@@ -1,5 +1,9 @@
+import path from "path";
+
 import { config } from "dotenv";
-config();
+config({
+    path: path.join(__dirname, "..", ".env"),
+});
 
 import electron from "electron";
 import { dbLoad } from "./database/initialize";
@@ -23,9 +27,9 @@ app.on("ready", async () => {
     mainWindow.setMenu(null);
 
     mainWindow.setTitle("Panel");
-    mainWindow.setIcon("public/favicon.png");
+    mainWindow.setIcon(path.resolve(__dirname, "..", "public", "favicon.png"));
     await dbLoad;
-    mainWindow.loadFile("../public/index.html");
+    mainWindow.loadFile(path.resolve(__dirname, "..", "public", "index.html"));
     // mainWindow.loadURL(`http://localhost:5000/`);
     if (!app.isPackaged) {
         mainWindow.webContents.openDevTools();
