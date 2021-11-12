@@ -36,7 +36,7 @@
     }
 </script>
 
-<Button variant="raised" color="secondary" on:click={back}>
+<Button variant="raised" color="secondary" class="btn-small" on:click={back}>
     <Icon class="material-icons">arrow_back</Icon>
     <Label>retour</Label>
 </Button>
@@ -77,6 +77,9 @@
     :global(.mdc-button.red) {
         margin-top: 0.75em;
         background-color: red !important;
+    }
+    :global(.btn-small) {
+        width: max-content;
     }
     :global(.grow) {
         flex-grow: 1;
