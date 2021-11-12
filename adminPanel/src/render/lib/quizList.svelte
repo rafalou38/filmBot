@@ -36,6 +36,7 @@
     <Icon class="material-icons">add</Icon>
     <Label>New quiz</Label>
 </Button>
+<div class="grow" />
 <Button variant="raised" on:click={save}>
     <Icon class="material-icons">save</Icon>
     <Label>Save All</Label>

@@ -20,10 +20,14 @@
 <style>
     .content {
         /* margin: 4em 2em; */
+        min-height: 100%;
         width: 100%;
         /* max-width: 400px; */
         display: flex;
         flex-direction: column;
         gap: 1em;
+    }
+    :global(.content > *) {
+        flex-shrink: 0;
     }
 </style>

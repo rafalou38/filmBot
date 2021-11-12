@@ -63,19 +63,24 @@
         </Button>
     </div>
 </div>
-<Button variant="raised" on:click={save}>
-    <Icon class="material-icons">save</Icon>
-    <Label>save</Label>
-</Button>
 <Button variant="raised" class="red" on:click={deleteQuiz}>
     <Icon class="material-icons">delete</Icon>
     <Label>supprimer</Label>
+</Button>
+<div class="grow" />
+<Button variant="raised" class="btn-save" on:click={save}>
+    <Icon class="material-icons">save</Icon>
+    <Label>save</Label>
 </Button>
 
 <style>
     :global(.mdc-button.red) {
         margin-top: 0.75em;
         background-color: red !important;
+    }
+    :global(.grow) {
+        flex-grow: 1;
+        min-height: 4em;
     }
 
     .section {
