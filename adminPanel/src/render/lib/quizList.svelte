@@ -1,7 +1,7 @@
 <script lang="ts">
     import Button, { Label, Icon } from "@smui/button";
     import List, { Item, Separator, Text } from "@smui/list";
-    import { addQuiz } from "../comunication/db";
+    import { addQuiz, saveQuiz } from "../comunication/db";
 
     import { currentQuiz, quizList } from "./stores";
 
@@ -11,6 +11,15 @@
             $quizList.push(result);
             currentQuiz.set(result);
             $quizList = $quizList;
+        }
+        console.log(result);
+    }
+    async function save() {
+        let result = await Promise.all($quizList.map(saveQuiz));
+        if (result.find((x) => x === false)) {
+            alert("Error saving all quiz");
+        } else {
+            alert("All quiz saved");
         }
         console.log(result);
     }
@@ -26,6 +35,10 @@
 <Button variant="raised" on:click={buttonClicked}>
     <Icon class="material-icons">add</Icon>
     <Label>New quiz</Label>
+</Button>
+<Button variant="raised" on:click={save}>
+    <Icon class="material-icons">save</Icon>
+    <Label>Save All</Label>
 </Button>
 
 <style>
